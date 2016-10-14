@@ -81,8 +81,9 @@
             <% @total_miles_walked = @total_miles_walked += stat.miles_walked %>
             <% end %>
             <tr>
-        
+                <% content_for :goal, number_with_delimiter(@john_stats.yearly_goal, :delimiter => ',') %>
                 <td align="center"><h2><%= number_with_delimiter(@john_stats.yearly_goal, :delimiter => ',') %></h2> Miles</td>
+                <% content_for :walked, @total_miles_walked.round(2).to_s %>
                 <td align="center"><h2><%= @total_miles_walked.round(2) %></h2> Miles</td>
                     <% @goal = Float (@john_stats.yearly_goal) %>
                     <% @miles_till_goal = @goal - @total_miles_walked %>

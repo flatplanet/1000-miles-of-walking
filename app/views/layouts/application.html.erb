@@ -6,7 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+  <meta property="og:site_name" content="Walk 1,000 Miles Per Year!" />
+  <meta property="og:url" content="http://walk.johnelder.org" /> 
+  <meta property="og:title" content="Walk 1,000 Miles Per Year!" /> 
+  <meta property="og:description" content="You've Walked <%= yield(:walked) %> of <%= yield(:goal) %> Miles So Far This Year!" />
+  <meta property="og:image" content="http://johnelder.org/images/walk.png"  />
 </head>
 <body>
 
