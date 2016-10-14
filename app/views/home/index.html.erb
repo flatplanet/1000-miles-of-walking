@@ -46,7 +46,8 @@
           <td align="center"><%= stat.date.strftime("%A %B %d - %Y")  %></td>
           <td align="center">
               <%= link_to 'Edit', edit_stat_path(stat), class: 'btn btn-default btn-xs' %>
-              <%= link_to 'Delete', stat, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+              <%= link_to 'Delete', stat, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+          </td>
         </tr>
 
       <% end %>
@@ -92,6 +93,7 @@
       <tr>
         <th class="info">Miles walked</th>
         <th class="info">Date</th>
+        <th class="info">Actions</th>
         
       </tr>
     </thead>
@@ -102,6 +104,10 @@
         <tr>
           <td align="center"><%= stat.miles_walked %></td>
           <td align="center"><%= stat.date.strftime("%A %B %d - %Y")  %></td>
+          <td align="center">
+              <%= link_to 'Edit', edit_stat_path(stat), class: 'btn btn-default btn-xs' %>
+              <%= link_to 'Delete', stat, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %>
+          </td>
         </tr>
 
       <% end %>

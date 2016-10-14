@@ -1,5 +1,7 @@
 class StatsController < ApplicationController
   before_action :set_stat, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  
 
   # GET /stats
   # GET /stats.json
