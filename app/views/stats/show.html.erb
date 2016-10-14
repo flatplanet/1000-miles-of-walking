@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Miles walked:</strong>
+  <%= @stat.miles_walked %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @stat.date %>
+</p>
+
+<p>
+  <strong>Yearly goal:</strong>
+  <%= @stat.yearly_goal %>
+</p>
+
+<%= link_to 'Edit', edit_stat_path(@stat) %> |
+<%= link_to 'Back', stats_path %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  miles_walked: 1
+  date: 2016-10-14
+  yearly_goal: 1
+
+two:
+  miles_walked: 1
+  date: 2016-10-14
+  yearly_goal: 1
