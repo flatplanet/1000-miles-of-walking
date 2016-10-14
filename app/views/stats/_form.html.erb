@@ -1,29 +1,34 @@
-<%= form_for(@stat) do |f| %>
-  <% if @stat.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@stat.errors.count, "error") %> prohibited this stat from being saved:</h2>
-
-      <ul>
-      <% @stat.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<% if user_signed_in? %>
+  <h1>New Stat</h1>
+  <%= form_for(@stat) do |f| %>
+    <% if @stat.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@stat.errors.count, "error") %> prohibited this stat from being saved:</h2>
+  
+        <ul>
+        <% @stat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= f.label :miles_walked %><br>
+      <%= f.number_field :miles_walked, step: :any %>
+    </div>
+    <div class="field">
+      <%= f.label :date %><br>
+      <%= f.date_select :date %>
+    </div>
+    <div class="form-group">
+      <% f.label :user_id %><br>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :miles_walked %><br>
-    <%= f.number_field :miles_walked, step: :any %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
-  </div>
-  <div class="form-group">
-    <% f.label :user_id %><br>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<% else %>
+<h3>You Must Be Logged In To View This Page...</h3>
 <% end %>
