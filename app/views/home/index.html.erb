@@ -47,10 +47,10 @@
         <% @total_miles_walked = @total_miles_walked += stat.miles_walked %>
         <tr>
           <td align="center"><%= stat.miles_walked %></td>
-          <td align="center"><%= stat.date %></td>
+          <td align="center"><%= stat.date.strftime("%A %B %d - %Y")  %></td>
           <td align="center"><%= link_to 'Show', stat, class: 'btn btn-default btn-xs' %>
           <%= link_to 'Edit', edit_stat_path(stat), class: 'btn btn-default btn-xs' %>
-          <%= link_to 'Destroy', stat, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
+          <%= link_to 'Delete', stat, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger btn-xs' %></td>
         </tr>
       <% end %>
     </tbody>
