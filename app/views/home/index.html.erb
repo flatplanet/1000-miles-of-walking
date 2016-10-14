@@ -43,7 +43,7 @@
     </thead>
   
     <tbody>
-      <% @stats.order("created_at desc").each do |stat| %>
+      <% @stats.order("date desc").each do |stat| %>
         <% @total_miles_walked = @total_miles_walked += stat.miles_walked %>
         <tr>
           <td align="center"><%= stat.miles_walked %></td>
