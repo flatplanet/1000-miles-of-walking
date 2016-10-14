@@ -66,6 +66,7 @@
             <th class="info">Your Goal</th>
             <th class="info">Miles Walked</th>
             <th class="info">Miles To Go</th>
+            <th class="info">Days Left In The Year</th>
           </tr>
         </thead>
         
@@ -81,6 +82,7 @@
                     <% @goal = Float (@john_stats.yearly_goal) %>
                     <% @miles_till_goal = @goal - @total_miles_walked %>
                 <td align="center"><h2><%= @miles_till_goal.round(2) %></h2>Miles</td>
+                <td align="center"><h2><% @days_left = Date.civil(Date.today.year, 12, 31) - Date.current %><%= @days_left.to_i %></h2>Days</td>
             </tr>
         </tbody>
     </table>
