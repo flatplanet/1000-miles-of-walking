@@ -53,8 +53,59 @@
     </tbody>
   </table>
 <br/><br/><br/>  
+
+
+
+
 <% else %>
-    <h3>Walk 1,000 Miles A Year!</h3>
-    <br/>
-    <%= link_to "Log In", new_user_session_path %>
+    <% @total_miles_walked = 0.0 %>
+    <table class="table table-bordered table-hover">
+        <thead>
+          <tr>
+            <th class="info">Your Goal</th>
+            <th class="info">Miles Walked</th>
+            <th class="info">Miles To Go</th>
+          </tr>
+        </thead>
+        
+        <tbody>
+            
+            <% @elder_stats.each do |stat| %>
+            <% @total_miles_walked = @total_miles_walked += stat.miles_walked %>
+            <% end %>
+            <tr>
+        
+                <td align="center"><h2><%= number_with_delimiter(@john_stats.yearly_goal, :delimiter => ',') %></h2> Miles</td>
+                <td align="center"><h2><%= @total_miles_walked.round(2) %></h2> Miles</td>
+                    <% @goal = Float (@john_stats.yearly_goal) %>
+                    <% @miles_till_goal = @goal - @total_miles_walked %>
+                <td align="center"><h2><%= @miles_till_goal.round(2) %></h2>Miles</td>
+            </tr>
+        </tbody>
+    </table>
+  
+  <br/><br/>
+  <% @total_miles_walked = 0.0 %>
+  <h3>ALL STATS</h3><br/>
+  <table class="table table-striped table-bordered table-hover">
+    <thead>
+      <tr>
+        <th class="info">Miles walked</th>
+        <th class="info">Date</th>
+        
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% @elder_stats.order("date desc").each do |stat| %>
+        <% @total_miles_walked = @total_miles_walked += stat.miles_walked %>
+        <tr>
+          <td align="center"><%= stat.miles_walked %></td>
+          <td align="center"><%= stat.date.strftime("%A %B %d - %Y")  %></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+<br/><br/><br/>      
 <% end %>
