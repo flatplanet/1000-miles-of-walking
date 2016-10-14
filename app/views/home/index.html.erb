@@ -1,3 +1,5 @@
+<% @days_left = Date.civil(Date.today.year, 12, 31) - Date.current %>
+
 <% if user_signed_in? %>
     <% @total_miles_walked = 0.0 %>
     <table class="table table-bordered table-hover">
@@ -21,8 +23,9 @@
                 <td align="center"><h2><%= @total_miles_walked.round(2) %></h2> Miles</td>
                     <% @goal = Float (current_user.yearly_goal) %>
                     <% @miles_till_goal = @goal - @total_miles_walked %>
-                <td align="center"><h2><%= @miles_till_goal.round(2) %></h2>Miles</td>
-                <td align="center"><h2><% @days_left = Date.civil(Date.today.year, 12, 31) - Date.current %><%= @days_left.to_i %></h2>Days Left</td>
+                <td align="center"><h2><%= @miles_till_goal.round(2) %></h2>Or <% @get_going = @miles_till_goal.round(2) / @days_left.round(2) %><%= @get_going.round(2) %> Miles Per Day</td>
+                <td align="center"><h2><%= @days_left.to_i %></h2>Days Left</td>
+                
             </tr>
         </tbody>
     </table>
@@ -83,8 +86,8 @@
                 <td align="center"><h2><%= @total_miles_walked.round(2) %></h2> Miles</td>
                     <% @goal = Float (@john_stats.yearly_goal) %>
                     <% @miles_till_goal = @goal - @total_miles_walked %>
-                <td align="center"><h2><%= @miles_till_goal.round(2) %></h2>Miles</td>
-                <td align="center"><h2><% @days_left = Date.civil(Date.today.year, 12, 31) - Date.current %><%= @days_left.to_i %></h2>Days Left</td>
+                <td align="center"><h2><%= @miles_till_goal.round(2) %></h2>Or <% @get_going = @miles_till_goal.round(2) / @days_left.round(2) %><%= @get_going.round(2) %> Miles Per Day</td>
+                <td align="center"><h2><%= @days_left.to_i %></h2>Days Left</td>
             </tr>
         </tbody>
     </table>
