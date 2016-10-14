@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161014164850) do
+ActiveRecord::Schema.define(version: 20161014165047) do
 
   create_table "stats", force: :cascade do |t|
     t.date     "date"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.float    "miles_walked"
   end
 
   add_index "stats", ["user_id"], name: "index_stats_on_user_id"
