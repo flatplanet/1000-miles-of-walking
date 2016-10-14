@@ -69,6 +69,6 @@ class StatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def stat_params
-      params.require(:stat).permit(:miles_walked, :date, :yearly_goal)
+      params.require(:stat).permit(:miles_walked, :date, :user_id)
     end
 end
