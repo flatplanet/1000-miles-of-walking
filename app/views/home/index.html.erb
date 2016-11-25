@@ -92,7 +92,7 @@
                         <% @goal = Float (@john_stats.yearly_goal) %>
                         <% @miles_till_goal = @goal - @total_miles_walked %>
                     <td align="center">
-                      <% if @miles_till_goal.round(2) < 0 %>
+                      <% if @miles_till_goal < 0 %>
                           <h2>0</h2>
                           You've exceeded Your Goal By <%= @miles_till_goal - @total_miles_walked %> Miles!
                         </td>
