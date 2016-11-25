@@ -91,7 +91,16 @@
                     <td align="center"><h2><%= @total_miles_walked.round(2) %></h2> Miles</td>
                         <% @goal = Float (@john_stats.yearly_goal) %>
                         <% @miles_till_goal = @goal - @total_miles_walked %>
-                    <td align="center"><h2><%= @miles_till_goal.round(2) %></h2>Or <% @get_going = @miles_till_goal.round(2) / @days_left.round(2) %><%= @get_going.round(2) %> Miles Per Day</td>
+                    <td align="center">
+                      <% if @miles_till_goal.round(2) < 0 %>
+                          <h2>0</h2>
+                          You've exceeded Your Goal By <%= @miles_till_goal - @total_miles_walked %> Miles!
+                        </td>
+                      <% else %>
+                        <h2><%= @miles_till_goal.round(2) %></h2>Or <% @get_going = @miles_till_goal.round(2) / @days_left.round(2) %><%= @get_going.round(2) %> Miles Per Day
+                        </td>
+                      <% end %>
+                      
                     <td align="center"><h2><%= @days_left.to_i %></h2>Days Left</td>
                 </tr>
             </tbody>
