@@ -24,20 +24,20 @@
                 <% end %>
                 <tr>
             
-                    <td align="center"><h2><%= number_with_delimiter(current_user.yearly_goal, :delimiter => ',') %></h2> Miles</td>
-                    <td align="center"><h2><%= number_with_delimiter(@total_miles_walked.round(2), :delimiter => ',') %></h2> Miles</td>
+                    <td align="center"><h2><%= number_with_delimiter(current_user.yearly_goal, :delimiter => ',') %></h2> <font color="#ccc">Miles</font></td>
+                    <td align="center"><h2><%= number_with_delimiter(@total_miles_walked.round(2), :delimiter => ',') %></h2> <font color="#ccc">Miles</font></td>
                         <% @goal = Float (current_user.yearly_goal) %>
                         <% @miles_till_goal = @goal - @total_miles_walked %>
                     <td align="center">
                       <% if @miles_till_goal < 0 %>
                           <h2>0</h2>
-                          You Beat Your Goal By <%= @miles_till_goal.round(2).abs %> Miles!
+                          <font color="#ccc">You Beat Your Goal By <%= @miles_till_goal.round(2).abs %> Miles!</font>
                         </td>
                       <% else %>
-                        <h2><%= @miles_till_goal.round(2) %></h2>Or <% @get_going = @miles_till_goal.round(2) / @days_left.round(2) %><%= @get_going.round(2) %> Miles Per Day
+                        <h2><%= @miles_till_goal.round(2) %></h2><font color="#ccc">Or <% @get_going = @miles_till_goal.round(2) / @days_left.round(2) %><%= @get_going.round(2) %> Miles Per Day</font>
                         </td>
                       <% end %>
-                    <td align="center"><h2><%= @days_left.to_i %></h2>Days Left</td>
+                    <td align="center"><h2><%= @days_left.to_i %></h2><font color="#ccc">Days Left</font></td>
                     
                 </tr>
             </tbody>
@@ -128,22 +128,22 @@
                 <% end %>
                 <tr>
                     <% content_for :goal, number_with_delimiter(@john_stats.yearly_goal, :delimiter => ',') %>
-                    <td align="center"><h2><%= number_with_delimiter(@john_stats.yearly_goal, :delimiter => ',') %></h2> Miles</td>
+                    <td align="center"><h2><%= number_with_delimiter(@john_stats.yearly_goal, :delimiter => ',') %></h2> <font color="#ccc">Miles</font></td>
                     <% content_for :walked, @total_miles_walked.round(2).to_s %>
-                    <td align="center"><h2><%= number_with_delimiter(@total_miles_walked.round(2), :delimiter => ',') %></h2> Miles</td>
+                    <td align="center"><h2><%= number_with_delimiter(@total_miles_walked.round(2), :delimiter => ',') %></h2> <font color="#ccc">Miles</font></td>
                         <% @goal = Float (@john_stats.yearly_goal) %>
                         <% @miles_till_goal = @goal - @total_miles_walked %>
                     <td align="center">
                       <% if @miles_till_goal < 0 %>
                           <h2>0</h2>
-                          You Beat Your Goal By <%= @miles_till_goal.round(2).abs %> Miles!
+                          <font color="#ccc">You Beat Your Goal By <%= @miles_till_goal.round(2).abs %> Miles!</font>
                         </td>
                       <% else %>
-                        <h2><%= @miles_till_goal.round(2) %></h2>Or <% @get_going = @miles_till_goal.round(2) / @days_left.round(2) %><%= @get_going.round(2) %> Miles Per Day
+                        <h2><%= @miles_till_goal.round(2) %></h2><font color="#ccc">Or <% @get_going = @miles_till_goal.round(2) / @days_left.round(2) %><%= @get_going.round(2) %> Miles Per Day</font>
                         </td>
                       <% end %>
                       
-                    <td align="center"><h2><%= @days_left.to_i %></h2>Days Left</td>
+                    <td align="center"><h2><%= @days_left.to_i %></h2><font color="#ccc">Days Left</font></td>
                 </tr>
             </tbody>
         </table>
