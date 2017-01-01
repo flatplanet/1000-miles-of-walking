@@ -31,7 +31,7 @@
   <strong>YEARLY GOAL:</strong> <%= current_user.yearly_goal %><br/>
   <% @goal = Float (current_user.yearly_goal) %>
   <% @miles_till_goal = @goal - @total_miles_walked %>
-  <strong>MILES TILL GOAL:</strong><%= @miles_till_goal.round(2) %><br/><br/>
+  
   
   
   <%= link_to 'Add New Statistic', new_stat_path %>
