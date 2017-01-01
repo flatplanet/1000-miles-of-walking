@@ -121,7 +121,10 @@
             <tbody>
                 
                 <% @elder_stats.each do |stat| %>
-                <% @total_miles_walked = @total_miles_walked += stat.miles_walked %>
+                  <% if stat.date.to_s =~ /#{Date.today.year}/  %>
+                    <% @total_miles_walked = @total_miles_walked += stat.miles_walked %>
+                  <% end %>
+                
                 <% end %>
                 <tr>
                     <% content_for :goal, number_with_delimiter(@john_stats.yearly_goal, :delimiter => ',') %>
