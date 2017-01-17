@@ -59,7 +59,7 @@
             <tr>
               <td align="center">2017</td>
               <td align="center"><%= number_with_delimiter(current_user.yearly_goal, :delimiter => ',') %></td>
-              <td align="center"><%= @total_miles_walked %></td>
+              <td align="center"><%= @total_miles_walked.round(2).to_s %></td>
             </tr>
             <tr>
               <td align="center">2016</td>
@@ -169,7 +169,7 @@
             <tr>
               <td align="center">2017</td>
               <td align="center">1,250</td>
-              <td align="center"><%= @total_miles_walked %></td>
+              <td align="center"><%= @total_miles_walked.round(2).to_s %></td>
             </tr>
             <tr>
               <td align="center">2016</td>
